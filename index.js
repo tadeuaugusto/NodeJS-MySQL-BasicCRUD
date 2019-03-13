@@ -25,6 +25,11 @@ router.get('/usuarios/:id?', (req, res) => {
     execSQLQuery('SELECT * FROM Usuarios' + filter, res);
 });
 
+// delete
+router.delete('/usuarios/:id', (req, res) => {
+    execSQLQuery('DELETE FROM Usuarios WHERE ID=' + parseInt(req.params.id), res);
+});
+
 // starting server
 app.listen(port);
 console.log('API is working!!!');
