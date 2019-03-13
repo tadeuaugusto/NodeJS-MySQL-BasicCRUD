@@ -1,0 +1,28 @@
+{
+  "name": "nodemysql",
+  "version": "1.0.0",
+  "description": "back-end nodejs using mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadeuaugusto/NodeMySQL-BackEnd.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mysql"
+  ],
+  "author": "tadeuaugusto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tadeuaugusto/NodeMySQL-BackEnd/issues"
+  },
+  "homepage": "https://github.com/tadeuaugusto/NodeMySQL-BackEnd#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}
