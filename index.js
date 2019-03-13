@@ -13,7 +13,32 @@ const router = express.Router();
 router.get('/', (req, res) => res.json({ message: 'Still Working!!' }));
 app.use('/', router);
 
+// user listing
+router.get('/usuarios', (req, res) => {
+    execSQLQuery('SELECT * FROM Usuarios', res);
+})
+
 // starting server
 app.listen(port);
 console.log('API is working!!!');
 
+
+/****************************** 
+ * Generic SQL Query execution */
+function execSQLQuery(sqlQuery, res) {
+    const conn = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'userscrud'
+    });
+
+    conn.query(sqlQuery, function(error, results, fields) {
+        if (error) res.json(error);
+        else res.json(results);
+
+        conn.end();
+        console.log('executou!');
+    });
+}
+/****************************** */
