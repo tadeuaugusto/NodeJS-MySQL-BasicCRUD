@@ -13,10 +13,17 @@ const router = express.Router();
 router.get('/', (req, res) => res.json({ message: 'Still Working!!' }));
 app.use('/', router);
 
-// user listing
+// find all users
 router.get('/usuarios', (req, res) => {
     execSQLQuery('SELECT * FROM Usuarios', res);
-})
+});
+
+// find user by id
+router.get('/usuarios/:id?', (req, res) => {
+    let filter = '';
+    if (req.params.id) filter =' WHERE ID=' + parseInt(req.params.id);
+    execSQLQuery('SELECT * FROM Usuarios' + filter, res);
+});
 
 // starting server
 app.listen(port);
